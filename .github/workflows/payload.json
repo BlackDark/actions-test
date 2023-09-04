@@ -1,11 +1,11 @@
 {
-    "text": "New release: ${{ env.RELEASE_VERSION }}",
+    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
     "blocks": [
         {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": "🌟 New release: ${{ env.RELEASE_VERSION }}\nWe have released a new version of CRBN AI. You can find the release notes here: https://github.com/AI-Skunkworks/crbn-ai/releases/tag/${{ env.RELEASE_VERSION }}\n\nRelease Notes:\n${{ env.RELEASE_NOTES }}"
+                "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
             }
         }
     ]
