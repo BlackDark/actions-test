@@ -27,3 +27,5 @@ jobs:
           payload-file-path: .github/workflows/payload.json
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
+          RELEASE_NOTES: ${{ env.RELEASE_NOTES }}
