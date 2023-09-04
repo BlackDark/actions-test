@@ -1,11 +1,13 @@
 name: Try
 on:
+  push:
   workflow_dispatch:
 
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: gh release view $TAG
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
