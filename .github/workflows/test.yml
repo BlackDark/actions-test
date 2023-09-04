@@ -26,13 +26,18 @@ jobs:
           channel-id: "C05NW7MFUCC" # news channel
           payload: |
             {
-              "blocks": [
+              "text": "Deployment finished (Completed)",
+              "attachments": [
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "🌟 New release: ${{ env.RELEASE_VERSION }}\nWe have released a new version of CRBN AI. You can find the release notes here: https://github.com/AI-Skunkworks/crbn-ai/releases/tag/${{ env.RELEASE_VERSION }}\n\nRelease Notes:\n${{ env.RELEASE_NOTES }}"
-                  }
+                  "pretext": "Deployment finished",
+                  "color": "28a745",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Completed"
+                    }
+                  ]
                 }
               ]
             }
