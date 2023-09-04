@@ -13,6 +13,7 @@ jobs:
       - run: |
           export RELEASE_NOTES=$(gh release view $TAG --json body | jq .body)
           echo "RELEASE_NOTES=${RELEASE_NOTES:1:-1}" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=$TAG" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
@@ -52,7 +53,7 @@ jobs:
                                 "type": "button",
                                 "text": {
                                     "type": "plain_text",
-                                    "text": "Github"
+                                    "text": "Open Github"
                                 },
                                 "url": "https://github.com/AI-Skunkworks/crbn-ai/releases/tag/${{ env.RELEASE_VERSION }}"
                             },
@@ -60,7 +61,7 @@ jobs:
                                 "type": "button",
                                 "text": {
                                     "type": "plain_text",
-                                    "text": "CRBN AI"
+                                    "text": "Open CRBNAI"
                                 },
                                 "url": "https://app.crbnai.com"
                             }
@@ -68,8 +69,5 @@ jobs:
                     }
                 ]
             }
-
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
-          RELEASE_NOTES: ${{ env.RELEASE_NOTES }}
