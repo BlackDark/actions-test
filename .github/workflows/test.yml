@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          export RELEASE_NOTES=$(gh release view $TAG --json body -q .body)
+          export RELEASE_NOTES=$(gh release view $TAG --json body | jq .body)
           echo "RELEASE_NOTES=$RELEASE_NOTES" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
